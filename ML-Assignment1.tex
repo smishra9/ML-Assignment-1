@@ -1,0 +1,266 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={ML Assignment 1},
+  pdfauthor={Sumit Dutt Mishra},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{ML Assignment 1}
+\author{Sumit Dutt Mishra}
+\date{1/31/2021}
+
+\begin{document}
+\maketitle
+
+\hypertarget{q1-data-source}{%
+\paragraph{Q1: Data Source}\label{q1-data-source}}
+
+Our dataset \textbf{Accounting Professionals} has been extarcted from
+\textbf{KAGGLE}, is a collection of databases and datasets used by
+machine learning community for the analysis of ML algorithms.
+
+\hypertarget{q2-importing-accounting-professionals-data-set-to-r-studio}{%
+\paragraph{Q2: Importing Accounting Professionals data set to R
+Studio}\label{q2-importing-accounting-professionals-data-set-to-r-studio}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"C:}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{Users}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{prerak}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{Desktop}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{sumit"}\NormalTok{)}
+\NormalTok{acc\_prof \textless{}{-}}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"Accounting Professionals.csv"}\NormalTok{)}
+\KeywordTok{head}\NormalTok{(acc\_prof)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Employee Gender Years.of.Service Years.Undergraduate.Study Graduate.Degree.
+## 1        1      F               17                         4                N
+## 2        2      F                6                         2                N
+## 3        3      M                8                         4                Y
+## 4        4      F                8                         4                Y
+## 5        5      M               16                         4                Y
+## 6        6      F               21                         1                N
+##   CPA. Age.Group
+## 1    Y     41-45
+## 2    N     26-30
+## 3    Y     31-35
+## 4    N     31-35
+## 5    Y     36-40
+## 6    Y     51-55
+\end{verbatim}
+
+\hypertarget{q3descriptive-statistics-of-acc.prof-data-set}{%
+\paragraph{Q3:Descriptive Statistics of acc.prof data
+set}\label{q3descriptive-statistics-of-acc.prof-data-set}}
+
+Inspecting DataSet
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(acc\_prof)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Employee       Gender          Years.of.Service Years.Undergraduate.Study
+##  Min.   : 1.0   Length:27          Min.   : 5.0     Min.   :0.00             
+##  1st Qu.: 7.5   Class :character   1st Qu.: 8.0     1st Qu.:3.00             
+##  Median :14.0   Mode  :character   Median :10.0     Median :4.00             
+##  Mean   :14.0                      Mean   :14.7     Mean   :3.37             
+##  3rd Qu.:20.5                      3rd Qu.:20.5     3rd Qu.:4.00             
+##  Max.   :27.0                      Max.   :31.0     Max.   :4.00             
+##  Graduate.Degree.       CPA.            Age.Group        
+##  Length:27          Length:27          Length:27         
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##                                                          
+##                                                          
+## 
+\end{verbatim}
+
+\textbf{Arithmetic Mean:} AM of a set of observation is defined as their
+sum divided number of observations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Average Number of Years of Service}
+\KeywordTok{mean}\NormalTok{(acc\_prof}\OperatorTok{$}\NormalTok{Years.of.Service)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14.7037
+\end{verbatim}
+
+\textbf{Median:} is the middle value of the observation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Median of Age Group}
+\KeywordTok{median}\NormalTok{(}\KeywordTok{sort}\NormalTok{(acc\_prof}\OperatorTok{$}\NormalTok{Age.Group))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "36-40"
+\end{verbatim}
+
+\textbf{Mode:} it refers to the value which occurs to the maximum
+frequency.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sort}\NormalTok{(}\KeywordTok{table}\NormalTok{(acc\_prof}\OperatorTok{$}\NormalTok{Gender), }\DataTypeTok{decreasing =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F  M 
+## 14 13
+\end{verbatim}
+
+\hypertarget{q3-transformation}{%
+\paragraph{Q3: Transformation}\label{q3-transformation}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Applying log transformation on years of service column}
+\NormalTok{log\_trans \textless{}{-}}\StringTok{ }\KeywordTok{log10}\NormalTok{(acc\_prof}\OperatorTok{$}\NormalTok{Years.of.Service)}
+\CommentTok{\#displaying first 20 values}
+\NormalTok{log\_trans[}\DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1.2304489 0.7781513 0.9030900 0.9030900 1.2041200 1.3222193 1.4313638
+##  [8] 0.8450980 0.9030900 1.3617278 0.9542425 0.9030900 0.9030900 1.4149733
+## [15] 0.9542425 0.9542425 1.2787536 0.6989700 1.2787536 1.3010300
+\end{verbatim}
+
+\hypertarget{q4-visualisation}{%
+\paragraph{Q4: Visualisation}\label{q4-visualisation}}
+
+\textbf{Histogram Plot}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{ggplot}\NormalTok{(acc\_prof, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Years.Undergraduate.Study)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom\_histogram}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{\textquotesingle{}Histogram \textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ML-Assignment1_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\textbf{Scatter Plot}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(acc\_prof, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Years.of.Service, }\DataTypeTok{y=}\NormalTok{Years.Undergraduate.Study)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom\_point}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{\textquotesingle{}Scatter plot\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ML-Assignment1_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\end{document}

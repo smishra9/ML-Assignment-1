@@ -1,0 +1,79 @@
+---
+title: "ML Assignment 1"
+author: "Sumit Dutt Mishra"
+date: "1/31/2021"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Q1: Data Source 
+Our dataset **Accounting Professionals** has been extarcted from **KAGGLE**, is a collection of databases and datasets used by machine learning community for the analysis of ML algorithms.
+
+#### Q2: Importing Accounting Professionals data set to R Studio 
+```{r}
+setwd("C:\\Users\\prerak\\Desktop\\sumit")
+acc_prof <- read.csv("Accounting Professionals.csv")
+head(acc_prof)
+``` 
+
+#### Q3:Descriptive Statistics of acc.prof data set 
+Inspecting DataSet 
+```{r message=FALSE}
+summary(acc_prof)
+``` 
+**Arithmetic Mean:** AM of a set of observation is defined as their sum divided number of observations.
+```{r}
+# Average Number of Years of Service
+mean(acc_prof$Years.of.Service)
+```
+
+**Median:** is the middle value of the observation. 
+```{r}
+# Median of Age Group
+median(sort(acc_prof$Age.Group))
+``` 
+
+ **Mode:** it refers to the value which occurs to the maximum frequency. 
+```{r}
+sort(table(acc_prof$Gender), decreasing = TRUE)
+
+
+``` 
+
+#### Q3: Transformation 
+```{r}
+# Applying log transformation on years of service column
+log_trans <- log10(acc_prof$Years.of.Service)
+#displaying first 20 values
+log_trans[1:20]
+
+```
+
+
+#### Q4: Visualisation 
+
+**Histogram Plot**
+```{r message=FALSE, warning = FALSE}
+library(ggplot2)
+ggplot(acc_prof, aes(x = Years.Undergraduate.Study)) +
+  geom_histogram() + 
+  ggtitle('Histogram ')
+```
+
+**Scatter Plot**
+```{r}
+
+ggplot(acc_prof, aes(x=Years.of.Service, y=Years.Undergraduate.Study)) + 
+  geom_point() +
+  ggtitle('Scatter plot')
+``` 
+
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
